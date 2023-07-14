@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from './action.js';
-import FilterOptions from "./FilterOptions";
+import FilterOptions from "./filterOptions.js";
 
 const initialstate = {
     allItems: [],
@@ -35,6 +35,7 @@ class FilterMenu extends Component {
         let filterNameText = this.state.filterNameText;
         let filterPriceText = this.state.filterPriceText;
         let array = [...this.state.allItems] || [];
+        console.log(array);
         if (ops === 'category') {
             filterCategoryText = filterText;
         } else if (ops === 'rating') {

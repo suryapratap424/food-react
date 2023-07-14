@@ -2,25 +2,26 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as api from '../../shared/api.js';
-import Cart from '../Cart/Cart';
-import * as filterActions from '../Filters/action';
-import FilterMenu from "../Filters/FilterMenu";
-import MenuItemList from '../Menu/MenuItemList';
+import Cart from '../Cart/cart.js';
+import * as filterActions from '../Filters/action.js';
+import FilterMenu from "../Filters/FilterMenu.js";
+import MenuItemList from '../Menu/menuItemList.js';
 import * as actions from './action.js';
 
 class Dashboard extends Component {
     componentDidMount() {
-        api.getAllItems()
-        .then((response) => {
+        // console.log(api.getAllItems());
+        let response = api.getAllItems();
+        // .then((response) => {
             const items = response.data;
             this.props.loadFoodItems(items.menu);
             this.props.filterMenu(items.menu);
-        })
-        .catch(error => {
-            console.log(error);
-            this.props.loadFoodItems([]);
-            this.props.filterMenu([]);
-        });
+        // })
+        // .catch(error => {
+            // console.log(error);
+            // this.props.loadFoodItems([]);
+            // this.props.filterMenu([]);
+        // });
     }
 
     render() {

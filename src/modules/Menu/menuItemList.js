@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../Cart/action';
-import MenuItem from './MenuItem';
+import MenuItem from './menuItem';
 
 class MenuItemList extends Component {
     addToSelection = (data) => {
@@ -13,7 +13,7 @@ class MenuItemList extends Component {
 
     render() {
         const { filteredItems } = this.props;
-
+        console.log(filteredItems,'f');
         let menuItemMarkup = filteredItems && filteredItems.map((menu, index) => {
             let itemsInMenu = menu && menu.items.map(data => <MenuItem
                 data={data}
