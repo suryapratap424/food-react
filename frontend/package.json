@@ -24,6 +24,7 @@
     "bootstrap": "^3.4.1",
     "jquery": "^3.5.1"
   },
+  "proxy": "http://localhost:3001",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

@@ -11,17 +11,18 @@ import * as actions from './action.js';
 class Dashboard extends Component {
     componentDidMount() {
         // console.log(api.getAllItems());
-        let response = api.getAllItems();
-        // .then((response) => {
-            const items = response.data;
+        api.getAllItems()
+        .then((response) => {
+            // console.log(JSON.parse(response.data));
+            const items = JSON.parse(response.data);
             this.props.loadFoodItems(items.menu);
             this.props.filterMenu(items.menu);
-        // })
-        // .catch(error => {
-            // console.log(error);
-            // this.props.loadFoodItems([]);
-            // this.props.filterMenu([]);
-        // });
+        })
+        .catch(error => {
+            console.log(error);
+            this.props.loadFoodItems([]);
+            this.props.filterMenu([]);
+        });
     }
 
     render() {
